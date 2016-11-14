@@ -1,0 +1,139 @@
+﻿@model gaming.domain.Models.tournament
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm())
+{
+
+
+
+
+
+
+
+
+
+
+    <!-- Main Content -->
+    <section class="content-wrap">
+        <!-- Banner -->
+        <div class="youplay-banner banner-top xsmall">
+
+
+            <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-blog-bg.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+            </div>
+            <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+                <div>
+                    <div class="container">
+                        <h2> Edit the Event </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Banner -->
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="col-md-9">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.idtournament)
+                @Html.HiddenFor(model => model.ImageUrl)
+
+
+
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <p>Event Title :</p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Event Type :</p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Event Date :</p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                            @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+           
+
+
+        </div>
+
+
+
+
+        <div class="col-md-6">
+            <div class="align-right">
+
+                <br />
+                <br />
+                <div class="align-center">
+                    <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Save Changes">Confirm</button>
+                    <button action="/Event/List" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Back to list">List</button>
+                </div>
+
+
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+
+    </section>
+
+    <section class="youplay-banner small mt-80">
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/game-kingdoms-of-amalur-reckoning-4-1920x1080.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+        </div>
+        <div class="info align-center">
+            <div>
+                <h2 class="mb-40">LevelUp</h2>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="owl-carousel" data-autoplay="6000">
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- Banner -->
+}

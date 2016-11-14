@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Main Content -->
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-bg.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2>It is There </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Banner -->
+    <!-- Google Map -->
+    <div id="google-map" class="youplay-gmaps">
+
+        <br /><br /><br /><br />
+        <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+            <script type="text/javascript">
+                var someStringValue = '@ViewBag.someStringValue';
+                var map;
+                function initialize() {
+
+
+                    geocoder = new google.maps.Geocoder();
+                    var latlng = new google.maps.LatLng(-34.397, 150.644);
+                    var myOptions = {
+                        zoom: 8,
+                        center: latlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    map = new google.maps.Map(document.getElementById("map"), myOptions);
+                    geocoder.geocode({ 'address': someStringValue }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+
+                        }
+                    });
+                    var marker = new google.maps.Marker
+                    (
+                        {
+                            position: new google.maps.LatLng(-34.397, 150.644),
+                            map: map,
+                            title: 'Click me'
+                        }
+                    );
+                    var infowindow = new google.maps.InfoWindow({
+                        content: 'Location info:<br/>Country Name:<br/>LatLng:'
+                    });
+                    google.maps.event.addListener(marker, 'click', function () {
+                        // Calling the open method of the infoWindow
+                        infowindow.open(map, marker);
+                    });
+                }
+                window.onload = initialize;
+            </script>
+
+            <h2>Event Location</h2>
+            <div id="map" style="height: 350px; width: 1150px; top: 10px; left: 50px; position: center;" class="youplay-gmaps"></div>
+
+        </asp:Content>
+
+
+        <hr />
+        @ViewBag.urii
+    </div>
+
+
+    <!-- /Google Map -->
+    <div class="container youplay-content">
+        <div class="row">
+            <div class="col-md-3">
+                <p>
+
+
+
+                </p>
+
+
+            </div>
+            <div class="col-md-9">
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="wrapper" style="background-image: url(assets/images/footer-bg.jpg)" data-bottom="transform:translate3d(0px,0px,0px);" data-bottom-top="transform:translate3d(0px,-200px,0px);" data-anchor-target="footer">
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="item">
+                        <a href=@Url.Action("List","Event")>
+                            <button action="/Event/List" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Back to list">Back</button>
+
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Copyright -->
+        </div>
+    </footer>
+    <!-- /Footer -->
+</section>
+<!-- /Main Content
+  -->
+<section class="youplay-banner small mt-80">
+
+    <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-bg.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+    </div>
+    <div class="info align-center">
+        <div>
+            <h2 class="mb-40">Other Events</h2>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="owl-carousel" data-autoplay="6000">
+
+                        
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Partners -->
+</section>

@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VAG</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/YouPlay/assets/images/icon.png")">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/bootstrap/css/bootstrap.min.css")" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/fontawesome/css/font-awesome.min.css")" />
+    <!-- Owl Catousel -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/owl.carousel/owl.carousel.css")" />
+    <!-- youplay -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/youplay/css/youplay.min.css")" />
+    <!--[if lt IE 9]>
+        <script src="../assets/plugins/html5shiv/html5shiv.min.js"></script>
+      <![endif]-->
+ <script>
+function toggle(anId,hideId) {
+    node = document.getElementById(anId);
+    node2 = document.getElementById(hideId);
+    if (node.style.visibility == "hidden") {
+        // Contenu caché, le montrer
+        node.style.visibility = "visible";
+        node2.style.visibility = "hidden";
+       	// Optionnel rétablir la hauteur
+    }
+    else {
+        // Contenu visible, le cacher
+        node.style.visibility = "hidden";
+        node2.style.visibility = "visible";
+      	// Optionnel libérer l'espace
+    }
+}
+
+
+
+ </script>
+
+    <style>
+            div.relative {
+                position: relative;
+                width: 400px;
+                height: 600px;
+
+            }
+
+            div.absolute {
+                position: absolute;
+
+
+                width: 400px;
+                height: 600px;
+
+            }
+
+
+    .socialLoginButton {
+       
+
+        
+    position: relative;
+    float: left;
+
+
+    background: 0 0;
+    border: none;
+
+    margin-right: 10px;
+    padding: 10px 30px;
+    box-shadow: none;
+    z-index: 1;
+    color: #fff;
+    text-decoration: none;
+
+
+
+    border-color: #ccc;
+
+
+    display: inline-block;
+    padding: 4px 8px;
+    margin-bottom: 0;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 1.42857143;
+
+    white-space: nowrap;
+    vertical-align: middle;
+
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    .socialLoginButton.facebook {
+     
+  
+      background: 0 0;
+      
+    }
+
+    .socialLoginButton.google {
+
+
+
+
+        background: 0 0;
+        
+      
+    }
+         .socialLoginButton.twitter {
+
+      
+       background: 0 0;
+      
+    }
+        .socialLoginButton.Steam {
+
+       border-color: #111;
+        background-color: #00222;
+        text-shadow: #333 -1px -1px 0;
+      
+    }
+         .socialLoginButton.Twitch {
+
+       border-color: #111;
+        background-color: #00222;
+        text-shadow: #333 -1px -1px 0;
+      
+    }
+    </style>
+
+</head>
+<body>
+    
+    <!-- Preloader -->
+    <div class="page-preloader preloader-wrapp">
+        <img src="@Url.Content("~/Content/YouPlay/assets/images/logo2.png")" alt="">
+        <div class="preloader"></div>
+    </div>
+    <!-- /Preloader -->
+
+
+
+      
+            @RenderBody()
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- /Search Block -->
+    <!-------------------------------------------------------------------------------------------->
+    <!-- jQuery -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery/jquery.min.js")"></script>
+    <!-- CSS Shapes Polyfill -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/css-shapes-polyfill/shapes-polyfill.min.js")"></script>
+    <!-- Hexagon Progress -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery.hexagonprogress/jquery.hexagonprogress.min.js")"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/bootstrap/js/bootstrap.min.js")"></script>
+    <!-- Skrollr -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/skrollr/skrollr.min.js")"></script>
+    <!-- Smooth Scroll -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/smoothscroll/smoothscroll.js")"></script>
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/owl.carousel/owl.carousel.min.js")"></script>
+    <!-- Countdown -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery.coundown/jquery.countdown.min.js")"></script>
+    <!-- youplay -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/youplay/js/youplay.min.js")"></script>
+    <!-- init youplay -->
+    <script>
+            if (typeof youplay !== 'undefined') {
+                youplay.init({
+                    smoothscroll: false,
+                });
+            }
+    </script>
+    <script type="text/javascript">
+            $(".countdown").each(function () {
+                $(this).countdown($(this).attr('data-end'), function (event) {
+                    $(this).text(
+                      event.strftime('%D days %H:%M:%S')
+                    );
+                });
+            })
+    </script>
+
+    <style>
+
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+
+
+    </style>
+
+    <script>
+
+        document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};</script>
+</body>
+</html>

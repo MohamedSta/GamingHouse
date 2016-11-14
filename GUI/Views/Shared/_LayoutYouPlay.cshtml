@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LeveUP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Scripts.Render("~/bundles/jsTheme")
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/YouPlay/assets/images/icon.png")">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/bootstrap/css/bootstrap.min.css")" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/fontawesome/css/font-awesome.min.css")" />
+    <!-- Owl Catousel -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/plugins/owl.carousel/owl.carousel.css")" />
+    <!-- youplay -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/YouPlay/assets/youplay/css/youplay.min.css")" />
+    <!--[if lt IE 9]>
+
+    <!-- Bootstrap Validator -->
+    <!-- youplay -->
+    <script src="../assets/plugins/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <style>
+
+.imga{
+          background-image: url("@Url.Content("~/Content/YouPlay/assets/images/more.png")") ;
+
+        }
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+    <!--Facebook -->
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5&appId=1521762911480344";
+            fjs.parentNode.insertBefore(js, fjs);
+
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <!--Facebook -->
+    <!-- Preloader -->
+    <div class="page-preloader preloader-wrapp">
+        <img src="@Url.Content("~/Content/YouPlay/assets/images/logo2.png")" alt="">
+        <div class="preloader"></div>
+    </div>
+    <!-- /Preloader -->
+    <nav class="navbar-youplay navbar navbar-default navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="off-canvas" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="@Url.Content("~/Content/YouPlay/assets/images/logo2.png")" alt="">
+                </a>
+            </div>
+
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown dropdown-hover ">
+                        <a href="#!" class="dropdown-toggle" role="button" aria-expanded="false">
+                            Event <span class="caret"></span> <span class="label">sta</span>
+                        </a>
+                        <div class="dropdown-menu" style="width: 320px;">
+                            <ul role="menu">
+                                <li>
+                                    <a href="@Url.Action("List", "Event")">List</a>
+                                </li>
+                                <li>
+                                   
+                                    <a  href="@Url.Action("Create", "Event")">Create</a>
+                                </li>
+
+                            </ul>
+                            <!--
+                            -->
+
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown dropdown-hover ">
+                        <a href="#!" class="dropdown-toggle" role="button" aria-expanded="false">
+                            News <span class="caret"></span> <span class="label">sou</span>
+                        </a>
+                        <div class="dropdown-menu" style="width: 320px;">
+                            <ul role="menu">
+                                <li>
+                                    <a href="@Url.Action("List", "News" )">List</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create", "News" )">Create</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Stat" )">Stat</a>
+                                </li>
+
+                            </ul>
+                            <!--
+                            -->
+
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown dropdown-hover ">
+                        <a href="#!" class="dropdown-toggle" role="button" aria-expanded="false">
+                            Tournament <span class="caret"></span> <span class="label">sta+Sou</span>
+                        </a>
+                        <div class="dropdown-menu" style="width: 320px;">
+                            <ul role="menu">
+                                <li>
+                                    <a href="@Url.Action("List","tournament")">List</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Create","tournament")">Create</a>
+                                </li>
+
+                            </ul>
+                            <!--
+                -->
+
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_LoginPartial")
+
+                    <li>
+                        <a class="search-toggle" href="search.html">
+
+                        </a>
+                    </li>
+                    <li class="dropdown dropdown-hover dropdown-cart">
+                        <a href="#!" class="dropdown-toggle" role="button" aria-expanded="false">
+
+                        </a>
+
+
+
+
+                        <div class="dropdown-menu" style="width: 300px;">
+                            <div class="row youplay-side-news">
+                                <div class="col-xs-3 col-md-4">
+                                    <a href="#" class="angled-img">
+                                        <div class="img">
+
+                                            <img src="@Url.Content("~/Content/YouPlay/assets/images/game-bloodborne-500x375.jpg")" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-9 col-md-8">
+                                    <a href="#" style="text-decoration: none;" class="pull-right mr-10"><i class="fa fa-times"></i></a>
+                                    <h4 class="ellipsis"><a href="#">Bloodborne</a></h4>
+                                    <span class="quantity">1 × <span class="amount">$50.00</span></span>
+                                </div>
+                            </div>
+                            <div class="row youplay-side-news">
+                                <div class="col-xs-3 col-md-4">
+                                    <a href="#" class="angled-img">
+                                        <div class="img">
+                                            <img src="@Url.Content("~/Content/YouPlay/assets/images/game-kingdoms-of-amalur-reckoning-500x375.jpg")" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-9 col-md-8">
+                                    <a href="#" style="text-decoration: none;" class="pull-right mr-10"><i class="fa fa-times"></i></a>
+                                    <h4 class="ellipsis"><a href="#">Kingdoms of Amalur</a></h4>
+                                    <span class="quantity">1 × <span class="amount">$20.00</span></span>
+                                </div>
+                            </div>
+                            <div class="ml-20 mr-20 pull-right">
+                                <strong>Subtotal:</strong>  <span class="amount">$70.00</span>
+                            </div>
+                            <div class="btn-group pull-right m-15">
+                                <a href="#" class="btn btn-default btn-sm">View Cart</a>
+                                <a href="#" class="btn btn-default btn-sm">Checkout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /Navbar -->
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery/jquery.min.js")"></script>
+    <!-- CSS Shapes Polyfill -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/css-shapes-polyfill/shapes-polyfill.min.js")"></script>
+    <!-- Hexagon Progress -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery.hexagonprogress/jquery.hexagonprogress.min.js")"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/bootstrap/js/bootstrap.min.js")"></script>
+    <!-- Skrollr -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/skrollr/skrollr.min.js")"></script>
+    <!-- Smooth Scroll -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/smoothscroll/smoothscroll.js")"></script>
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/owl.carousel/owl.carousel.min.js")"></script>
+    <!-- Countdown -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/plugins/jquery.coundown/jquery.countdown.min.js")"></script>
+    <!-- youplay -->
+    <script type="text/javascript" src="@Url.Content("~/Content/YouPlay/assets/youplay/js/youplay.min.js")"></script>
+    <!-- init youplay -->
+    <script>
+        if (typeof youplay !== 'undefined') {
+            youplay.init({
+                smoothscroll: false,
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(".countdown").each(function () {
+            $(this).countdown($(this).attr('data-end'), function (event) {
+                $(this).text(
+                  event.strftime('%D days %H:%M:%S')
+                );
+            });
+        })
+    </script>
+
+    <script>
+        if (typeof youplay !== 'undefined') {
+            youplay.init({
+                smoothscroll: false,
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(".countdown").each(function () {
+            $(this).countdown($(this).attr('data-end'), function (event) {
+                $(this).html(
+                    event.strftime([
+                        '<div class="row">',
+                            '<div class="col-xs-6 col-sm-3">',
+                                '<span>Days</span>',
+                                '<span><span>%D</span></span>',
+                            '</div>',
+                            '<div class="col-xs-6 col-sm-3">',
+                                '<span>Hours</span>',
+                                '<span><span>%H</span></span>',
+                            '</div>',
+                            '<div class="col-xs-6 col-sm-3">',
+                                '<span>Minutes</span>',
+                                '<span><span>%M</span></span>',
+                            '</div>',
+                            '<div class="col-xs-6 col-sm-3">',
+                                '<span>Seconds</span>',
+                                '<span><span>%S</span></span>',
+                            '</div>',
+                        '</div>'
+                    ].join(''))
+                );
+            });
+        })
+    </script>
+
+
+</body>
+</html>

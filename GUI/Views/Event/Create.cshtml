@@ -1,0 +1,194 @@
+﻿@model GUI.Models.EventViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Create", "Event", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+    <!-- Main Content -->
+    <section class="content-wrap">
+        <!-- Banner -->
+        <div class="youplay-banner banner-top xsmall">
+
+
+            <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+            </div>
+            <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+                <div>
+                    <div class="container">
+                        <h2>Add an Event </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Banner -->
+
+        <div class="container youplay-content">
+            <div class="col-md-9">
+                <!-- Billing Information -->
+                <h2 class="mt-0">Event Details</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Event Title:</p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>Event Type :  </p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>Event Place :  </p>
+                        <div class="youplay-input">
+                            @Html.EditorFor(model => model.lieu, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.lieu, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- Date -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Event Date :</p>
+                            <div class="youplay-input">
+                                @Html.EditorFor(model => model.dateEvent, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                                @Html.ValidationMessageFor(model => model.dateEvent, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Picture :</p>
+                                <div class="youplay-input">
+                                    @Html.TextBox("Image", null, new { Type = "file" })
+                                    @Html.ValidationMessageFor(model => model.Pic, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Date -->
+
+
+               
+
+
+
+
+
+                <div class="align-right">
+                    <button type="submit" class="btn btn-default db">Confirm</button>
+
+                </div>
+
+            </div>
+
+            <!-- Order Button -->
+            <!-- /Order Button -->
+            <!-- Right Side -->
+            <div class="col-md-3">
+                <br />
+                <br /><br />
+                <br /><br />
+                <br />
+                <!-- Side Popular News -->
+                <div class="side-block right-side">
+
+                    <div class="block-content p-0">
+                        <!-- Single News Block -->
+                        <!-- /Side Popular News -->
+                        <!-- Side Popular News -->
+                        <div class="side-block right-side">
+
+                            <div class="block-content p-0">
+                                <!-- Single News Block -->
+                                <div class="row youplay-side-news">
+                                    <div class="col-xs-3 col-md-4">
+                                        <a href="store-product-1.html" class="">
+
+
+
+
+
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-9 col-md-8">
+
+
+
+                                        <form action="/Event/Create" method="post" enctype="multipart/form-data"></form>
+
+                                    </div>
+                                </div>
+                                <!-- /Single News Block -->
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Side Popular News -->
+            </div>
+            <!-- /Right Side -->
+
+        </div>
+
+
+        <section class="youplay-banner small mt-80">
+
+            <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-witcher-3.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+            </div>
+            <div class="info align-center">
+                <div>
+                    <h2 class="mb-40">LevelUp</h2>
+
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="owl-carousel" data-autoplay="6000">
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </section>
+
+
+
+}
+
+
+

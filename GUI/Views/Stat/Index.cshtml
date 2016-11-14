@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+
+
+
+
+
+<div class="youplay-banner banner-top xsmall">
+
+
+    <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+    </div>
+    <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+        <div>
+            <div class="container">
+                <h2>Statistics of News </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@if (ViewBag.PercentageNews["news"] != 0)
+{
+
+    <div id="echart_pie" style="height:350px;"></div>
+}
+
+else
+{
+
+    <h1 class="text-center">No Data</h1>
+
+}
+<script>
+
+
+
+
+
+</script>
+@if (ViewBag.PercentageNews["news"] != 0)
+{
+    <script>
+            // Shares Types Pie Chart
+
+            var myChart = echarts.init(document.getElementById('echart_pie'), theme);
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    //orient: 'vertical',
+                    //x: 'left',
+                    x: 'center',
+                    y: 'bottom',
+                    data: ['9/205', '10/2015', '11/2015', '12/2015']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 1548
+                                }
+                            }
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: false,
+                series: [
+                    {
+                        name: 'Shares',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '48%'], //left,top
+                        data: [
+                            {
+                                value: @ViewBag.PercentageNews["moix1"],
+                                name: '9/2015'
+                            },
+                            {
+                                value: @ViewBag.PercentageNews["imprimante"],
+                                name: '10/2015'
+                            },
+                            {
+                                value: @ViewBag.PercentageNews["fax"],
+                                name: '11/2015'
+                            },
+                             {
+                                 value: @ViewBag.PercentageNews["chaise"],
+                                 name: '12/2015'
+                             }
+                        ]
+                    }
+                ]
+            });
+
+
+
+            var dataStyle = {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            };
+            var placeHolderStyle = {
+                normal: {
+                    color: 'rgba(0,0,0,0)',
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                emphasis: {
+                    color: 'rgba(0,0,0,0)'
+                }
+            };
+    </script>
+        <!-- /dashbord linegraph -->
+
+
+}
+
+<!--Banner footer -->
+<section class="youplay-banner small mt-80">
+
+    <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+    </div>
+    <div class="info align-center">
+        <div>
+            <h2 class="mb-40">LevelUP</h2>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="owl-carousel" data-autoplay="6000">
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>    <!-- Banner -->

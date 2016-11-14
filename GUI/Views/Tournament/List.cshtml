@@ -1,0 +1,146 @@
+﻿@model IEnumerable<GUI.Models.TournamentViewModel>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+
+<!-- templateee -->
+
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2> Tournament  List </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Banner -->
+
+
+
+
+
+
+
+
+
+
+    <div class="container youplay-content">
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Title</th>
+                    <th>description</th>
+                    <th>date</th>
+                    <th>Place</th>
+                    <th>Image</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+
+                        <td>@Html.DisplayFor(modelItem => item.title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.lieu)</td>
+
+                        <td>
+                            <div class="col-xs-3 col-md-4">
+                                <a href="@Url.Action("Details","Tournament", new { id = item.idtournament })" class="angled-img">
+                                    <div class="img">
+                                        <img height="100" width="100" data-toggle="tooltip" data-placement="right" title="Show details" src=@Html.DisplayFor(modelItem => item.ImageUrl) alt="">
+
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+
+
+                        <!--Ajout la methooooooooooooooooooooooooooooooooooooooooooooooooooooooooooode-->
+                        <td>
+
+                            <a href="@Url.Action("Show","Tournament", new { id = item.idtournament })" class="angled-img">
+                                <div>
+                                    <br />
+                                    <img height="65" width="80" data-toggle="tooltip" data-placement="right" title="Show Location" src="~/content/location.png" alt="">
+
+                                </div>
+                            </a>
+
+
+
+
+                        </td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!--- ya-->
+        <a class="btn btn-lg" href="@Url.Action("Create","tournament")">Create Tournament</a>
+        <!--- ya -->
+    </div>
+
+    <!-- Partners -->
+    <section class="youplay-banner small mt-80">
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+        </div>
+        <div class="info align-center">
+            <div>
+                <h2 class="mb-40">Tournaments</h2>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="owl-carousel" data-autoplay="6000">
+
+
+
+
+                            <!--à changer avec le code de l'affichage des image des tournoits -->
+
+
+
+
+                            @*<div class="item">
+                                <a href="#">
+                                    <img src="@Url.Content("~/Content/YouPlay/assets/images/partner-logo-3.png")" alt="">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="@Url.Content("~/Content/YouPlay/assets/images/partner-logo-5.png")" alt="">
+                                </a>
+                            </div>*@
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Partners -->
+    </section>

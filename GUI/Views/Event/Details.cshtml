@@ -1,0 +1,223 @@
+﻿@model gaming.data.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+@helper progress(DateTime DatePub)
+{
+if (DatePub.Month == DateTime.Now.Month)
+{
+    int x = 60;
+    /* ((DatePub.Day - DateTime.Now.Day) / 30) * 100;*/
+
+
+}
+else
+{
+    double x = 100;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+<!-- Main Content -->
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-blog-bg.jpg"))" data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2>Clooser Look</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Banner -->
+
+    <div class="container youplay-news youplay-post">
+        <div class="col-md-9">
+            <!-- Post Info -->
+            <article class="news-one">
+                <!-- Post Text -->
+                <div class="description">
+                    <a class="angled-img pull-left video-popup">
+                        <div class="img">
+                            <img height="400" width="400" src=@Html.DisplayFor(model => model.Pic) alt="">
+                        </div>
+
+                    </a>
+                    <dt>
+                        <h4>Title :</h4>
+                    </dt>
+
+                    <dd>
+                        <br />
+                        @Html.DisplayFor(model => model.title)
+                    </dd>
+
+
+                    <dd>
+                        -------------------------------------------------
+                    </dd>
+
+
+                    <dt>
+                        <h4>Type :</h4>
+                    </dt>
+
+                    <dd>
+                        <br />
+                        @Html.DisplayFor(model => model.type)
+                    </dd>
+
+
+                    <dd>
+                        -------------------------------------------------
+                    </dd>
+
+                    <dt>
+                        <h4>Event Date :</h4>
+                    </dt>
+
+                    <dd>
+                        <br />
+                        @Html.DisplayFor(model => model.dateEvent)
+                    </dd>
+
+
+
+                    <dd>
+                        -------------------------------------------------
+                    </dd>
+
+                    <dt>
+                        <h4>Event Place :</h4>
+                    </dt>
+
+                    <dd>
+                        <br />
+                        @Html.DisplayFor(model => model.lieu)
+                    </dd>
+
+
+                    <dd>
+                        -------------------------------------------------
+                    </dd>
+
+                    @*<dd>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="@progress(Model.dateEvent)" aria-valuemin="0" aria-valuemax="100" style="width: @progress(Model.dateEvent)%">
+                            *<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="sr-only">60% Complete (success)</span>
+                            </div>
+                        </div>
+                    </dd>*@
+                    <dd>
+                        <div class="info container align-center">
+                            <div>
+                                <h2>The Witcher 3:<br> Wild Hunt</h2>
+
+                                <!-- See countdown init in bottom of the page -->
+                                <div class="countdown h2" data-end="@Html.DisplayFor(model => model.dateEvent)"></div>
+                                <br>
+                                <br>
+                                <a class="btn btn-lg" href="#!">Pre-Order</a>
+                            </div>
+                        </div>
+                    </dd>
+</div>
+                <!-- /Post Text -->
+
+
+            </article>
+            <!-- /Post Info -->
+
+
+        </div>
+
+    </div>
+
+
+    <div class="align-center">
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Are u sure</h4>
+                    </div>
+                    <div class="modal-body">
+                        Do wanna realy do it !!!!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="keep it">Close</button>
+                        <a href=@Url.Action("Delete", "Event", new { id = Model.id })>
+                            <button action="/Event/Delete " class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Send to hell">Delete</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                Delete
+            </button>
+            <a href=@Url.Action("Edit", "Event", new { id = Model.id })>
+                <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit Event">Edit</button>
+            </a>
+
+            <a href=@Url.Action("List","Event")>
+                <button action="/Event/List" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Back to list">List</button>
+
+            </a>
+            <div class="fb-share-button" data-href="http://localhost:10963/Event/Details/26" data-layout="button">
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+</section>
+
+
+<!-- /Main Content -->
+<!--Banner-->
+<section class="youplay-banner small mt-80">
+
+    <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/game-kingdoms-of-amalur-reckoning-4-1920x1080.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+    </div>
+    <div class="info align-center">
+        <div>
+            <h2 class="mb-40">LevelUp</h2>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="owl-carousel" data-autoplay="6000">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<!-- Banner -->

@@ -1,0 +1,164 @@
+﻿@model IEnumerable<GUI.Models.EventViewModel>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+@*@helper pic (string input ) {
+                if(input != null)
+                        {
+                         @input
+                        }
+    }*@
+
+
+@*@helper  Truncate(string lieu, int lenght){
+    if (lieu.Length <= lenght)
+    {
+            @lieu
+    }
+    else
+    {
+            @lieu.Substring(0, lenght) <text> ... </text>
+    }
+
+    }*@
+
+
+
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/game-kingdoms-of-amalur-reckoning-4-1920x1080.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2>Event List </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container youplay-content">
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Place   </th>
+                    <th>Date</th>
+                    <th>Pic             </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+
+
+
+                        <td>@Html.DisplayFor(modelItem => item.title)</td>
+
+                        <td align="center">@Html.DisplayFor(modelItem => item.type)</td>
+                        <td>
+
+
+                            <p>
+                                @*<p>@Truncate(item.lieu, 30)</p>*@
+                                @Html.DisplayFor(modelItem => item.lieu)
+                            </p>
+
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.dateEvent)</td>
+                        <td>
+                            <div class="col-xs-3 col-md-4">
+                                <a href="@Url.Action("Details","Event", new { id = item.id })" class="angled-img">
+                                    <div class="img">
+                                        <img height="100" width="100" data-toggle="tooltip" data-placement="right" title="Show details" src=@Html.DisplayFor(modelItem => item.Pic) alt="">
+
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+
+                            <a href="@Url.Action("Show","Event", new { id = item.id })" class="angled-img">
+                                <div>
+                                    <br />
+                                    <img height="65" width="80" data-toggle="tooltip" data-placement="right" title="Show Location" src="~/content/location.png" alt="">
+
+                                </div>
+                            </a>
+                           
+
+
+
+                        </td>
+
+                    </tr>
+
+
+                }
+            </tbody>
+        </table>
+
+        <!--- -->
+        <a class="btn btn-lg" href="@Url.Action("Create","Event")">Create Event</a>
+        <!----->
+    </div>
+
+    <!-- Partners -->
+    <section class="youplay-banner small mt-80">
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/game-kingdoms-of-amalur-reckoning-4-1920x1080.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+        </div>
+        <div class="info align-center">
+            <div>
+                <h2 class="mb-40">The Event</h2>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="owl-carousel" data-autoplay="6000">
+
+                            @foreach (var item in Model)
+                            {
+
+                                <div class="item">
+
+                                    <a class="angled-img pull-left video-popup">
+                                        <div class="img">
+                                            <img height="90" width="90" src=@Html.DisplayFor(modelItem => item.Pic) alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Partners -->
+    </section>
+</section>
+
+
+
+
+
+

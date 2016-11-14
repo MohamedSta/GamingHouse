@@ -1,0 +1,125 @@
+﻿@model IEnumerable<GUI.Models.NewsViewModel>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+
+@helper Truncate(string input, int lenght)
+    {
+
+            if (input.Length <= lenght)
+                {
+                        @input
+                }
+            else
+                {
+                        @input.Substring(0, lenght) <text> ... </text>
+                }
+
+    }
+
+
+<!-- Main Content -->
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+
+
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2>News List </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner -->
+
+    <div class="container youplay-news">
+        <!-- News List -->
+        <div class="col-md-9">
+
+
+
+            @foreach (var item in Model)
+            {
+            <!-- Single News Block -->
+                <div class="news-one row">
+                    <div class="col-md-4">
+                        <a  class="angled-img">
+                            <div class="img">
+
+                                <img height="110" width="80" src=@Html.DisplayFor(modelItem => item.Image) alt="">
+
+                            </div>
+                            <div class="youplay-hexagon-rating youplay-hexagon-rating-small" data-max="10" data-size="50" title="9.1 out of 10">
+                                <!--Note-->
+                                <span></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="clearfix">
+                            <!--title-->
+                            @Html.DisplayFor(modelItem => item.title)
+
+                            <span class="date pull-right"><i class="fa fa-calendar"></i> @Html.DisplayFor(modelItem => item.DatePub)</span>
+                        </div>
+
+                        <div class="description">
+                            <p>@Truncate(item.description, 120)</p>
+
+                            @*@Html.DisplayFor(modelItem => item.description)*@
+
+                        </div>
+
+
+                        <a class="btn read-more pull-right" href="@Url.Action("Details", "News", new { id=item.idNews })">Details</a>
+                       
+                      </div>
+                    
+                
+                    <p>*********************************************************************************************************************************</p>
+
+                </div>
+
+            }
+            <!-- /Single News Block -->
+            <a class="btn read-more pull-left" href="@Url.Action("Create", "News" )">Add News</a>
+
+
+
+
+        </div>
+        <!-- /News List -->
+
+    </div>
+
+
+</section>
+<!-- /Main Content -->
+
+<section class="youplay-banner small mt-80">
+
+    <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/aa.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+    </div>
+    <div class="info align-center">
+        <div>
+            <h2 class="mb-40">LevelUP</h2>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="owl-carousel" data-autoplay="6000">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

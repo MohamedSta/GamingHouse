@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+
+
+
+<h2>Statistique of News</h2>
+@if (ViewBag.PercentageNews["news"] != 0)
+{
+
+    <div id="echart_pie" style="height:350px;"></div>
+}
+
+else
+{
+
+    <h1 class="text-center">No Data</h1>
+
+}
+<script>
+
+
+
+
+
+</script>
+@if (ViewBag.PercentageNews["news"] != 0)
+{
+    <script>
+        // Shares Types Pie Chart
+
+        var myChart = echarts.init(document.getElementById('echart_pie'), theme);
+        myChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                //orient: 'vertical',
+                //x: 'left',
+                x: 'center',
+                y: 'bottom',
+                data: [date1, 'test2', 'test3','test4']
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    magicType: {
+                        show: true,
+                        type: ['pie', 'funnel'],
+                        option: {
+                            funnel: {
+                                x: '25%',
+                                width: '50%',
+                                funnelAlign: 'left',
+                                max: 1548
+                            }
+                        }
+                    },
+                    restore: {
+                        show: true
+                    },
+                    saveAsImage: {
+                        show: true
+                    }
+                }
+            },
+            calculable: false,
+            series: [
+                {
+                    name: 'Shares',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '48%'], //left,top
+                    data: [
+                        {
+                            value: @ViewBag.PercentageNews["test1"],
+                            name: 'test1'
+                        },
+                        {
+                            value: @ViewBag.PercentageNews["test2"],
+                            name: 'test2'
+                        },
+                        {
+                            value: @ViewBag.PercentageNews["test3"],
+                            name: 'test3'
+                        },
+                        {
+                            value: @ViewBag.PercentageNews["test4"],
+                            name: 'test4'
+                        }
+                    ]
+                }
+            ]
+        });
+
+
+
+        var dataStyle = {
+            normal: {
+                label: {
+                    show: false
+                },
+                labelLine: {
+                    show: false
+                }
+            }
+        };
+        var placeHolderStyle = {
+            normal: {
+                color: 'rgba(0,0,0,0)',
+                label: {
+                    show: false
+                },
+                labelLine: {
+                    show: false
+                }
+            },
+            emphasis: {
+                color: 'rgba(0,0,0,0)'
+            }
+        };
+    </script>
+        <!-- /dashbord linegraph -->
+
+
+}
+

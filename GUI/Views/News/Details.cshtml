@@ -1,0 +1,114 @@
+﻿@model gaming.data.Models.news
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutYouPlay.cshtml";
+}
+
+<h2>Details</h2>
+
+
+
+<section class="content-wrap">
+    <!-- Banner -->
+    <div class="youplay-banner banner-top xsmall">
+        <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-bg.jpg"))" data-top="background-position: 50% 0px;" data-top-bottom="background-position: 50% -200px;">
+        </div>
+        <div class="info" data-top="opacity: 1; transform: translate3d(0px,0px,0px);" data-top-bottom="opacity: 0; transform: translate3d(0px,150px,0px);" data-anchor-target=".youplay-banner.banner-top">
+            <div>
+                <div class="container">
+                    <h2>Clooser Look</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Info -->
+    <article class="news-one">
+        <!-- Post Text -->
+        <div class="description">
+            <h3>@Html.DisplayFor(model => model.title)</h3>
+            <p>
+                @Html.DisplayFor(model => model.description)
+            </p>
+            <div class="align-center">
+                <a href="assets/images/game-kingdoms-of-amalur-reckoning-1440x900.jpg" class="angled-img image-popup">
+                    <div class="img">
+                        <img height="500" width="500" src=@Html.DisplayFor(model => model.Image) alt="">
+                      
+                </a>
+               
+            </div>
+
+            <!--Description ------------------------------------------------->
+
+
+
+        </div>
+        <!-- /Post Text -->
+        
+
+        <div class="align-center">
+            <br/>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Are u sure</h4>
+                        </div>
+                        <div class="modal-body">
+                            Do wanna realy do it !!!!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="keep it">Close</button>
+                            <a href=@Url.Action("Delete", "News", new { id = Model.idNews })>
+                                <button action="/Event/Delete " class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Send to hell">Delete</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                    Delete
+                </button>
+                <a href=@Url.Action("Edit", "News", new { id = Model.idNews })>
+                    <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit Event">Edit</button>
+                </a>
+
+                <a href=@Url.Action("List","News")>
+                    <button action="/Event/List" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Back to list">List</button>
+
+                </a>
+            </div>
+        </div>
+
+
+
+
+        <!--Banner-->
+        <section class="youplay-banner small mt-80">
+
+            <div class="image" style="background-image: url(@Url.Content("~/Content/YouPlay/assets/images/banner-bg.jpg"))" ; background-size cover;" data-top-bottom="background-position: 50% -150px;" data-bottom-top="background-position: 50% 150px;">
+            </div>
+            <div class="info align-center">
+                <div>
+                    <h2 class="mb-40">LevelUp</h2>
+
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="owl-carousel" data-autoplay="6000">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- Banner -->
