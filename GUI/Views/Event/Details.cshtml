@@ -64,7 +64,7 @@ else
 
                     <dd>
                         <br />
-                        @Html.DisplayFor(model => model.title)
+                        @Html.DisplayFor(model => model.Etitle)
                     </dd>
 
 
@@ -127,7 +127,7 @@ else
                     <dd>
                         <div class="info container align-center">
                             <div>
-                                <h2>The Witcher 3:<br> Wild Hunt</h2>
+                               
 
                                 <!-- See countdown init in bottom of the page -->
                                 <div class="countdown h2" data-end="@Html.DisplayFor(model => model.dateEvent)"></div>
@@ -166,7 +166,7 @@ else
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="keep it">Close</button>
-                        <a href=@Url.Action("Delete", "Event", new { id = Model.id })>
+                        <a href=@Url.Action("Delete", "Event", new { idEvent = Model.idEvent })>
                             <button action="/Event/Delete " class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Send to hell">Delete</button>
                         </a>
                     </div>
@@ -178,7 +178,7 @@ else
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
                 Delete
             </button>
-            <a href=@Url.Action("Edit", "Event", new { id = Model.id })>
+            <a href=@Url.Action("Edit", "Event", new { idEvent = Model.idEvent })>
                 <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit Event">Edit</button>
             </a>
 

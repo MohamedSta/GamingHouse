@@ -35,9 +35,9 @@ namespace GUI.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Show(int id)
+        public ActionResult Show(int idEvent)
         {
-            var events = service.GetById(id);
+            var events = service.GetById(idEvent);
             string city = events.lieu;
             ViewBag.someStringValue = events.lieu;
             return View();
@@ -63,9 +63,9 @@ namespace GUI.Controllers
                 EVM.Add(
                     new EventViewModel
                     {
-                        id= item.id,
+                        idEvent= item.idEvent,
                         dateEvent = item.dateEvent,
-                        title = item.title,
+                        Etitle = item.Etitle,
                         type = item.type,
                         lieu = item.lieu,
                         Pic = "/content/Upload/" + item.Pic,
@@ -76,13 +76,14 @@ namespace GUI.Controllers
         }
 
         // GET: Event/Details/5
-        public ActionResult Details(int id)
-        { var ev = service.GetById(id);
+        public ActionResult Details(int idEvent)
+        { var ev = service.GetById(idEvent);
             Event obj = new Event
             {
-                id = ev.id,
+                idEvent
+                = ev.idEvent,
                 dateEvent = ev.dateEvent,
-                title = ev.title,
+                Etitle = ev.Etitle,
                 type = ev.type,
                 lieu = ev.lieu,
                 Pic = "/content/Upload/" + ev.Pic,
@@ -144,9 +145,9 @@ namespace GUI.Controllers
 
                 Event obj = new Event
                 {
-                    id = ev.id,
+                    idEvent = ev.idEvent,
                     dateEvent = ev.dateEvent,
-                    title = ev.title,
+                    Etitle = ev.Etitle,
                     type = ev.type,
                     lieu = ev.lieu,
                     Pic = Image.FileName,
@@ -173,9 +174,9 @@ namespace GUI.Controllers
     }
 
         // GET: Event/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int idEvent)
         {
-            Event ev = service.GetById(id);
+            Event ev = service.GetById(idEvent);
 
             return View(ev);
         }
@@ -202,9 +203,9 @@ namespace GUI.Controllers
         }
 
         // GET: Event/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int idEvent)
         {
-            Event ev = service.GetById(id);
+            Event ev = service.GetById(idEvent);
 
             service.Delete(ev);
             service.Commit();

@@ -70,7 +70,7 @@
 
 
 
-                        <td>@Html.DisplayFor(modelItem => item.title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Etitle)</td>
 
                         <td align="center">@Html.DisplayFor(modelItem => item.type)</td>
                         <td>
@@ -85,7 +85,7 @@
                         <td>@Html.DisplayFor(modelItem => item.dateEvent)</td>
                         <td>
                             <div class="col-xs-3 col-md-4">
-                                <a href="@Url.Action("Details","Event", new { id = item.id })" class="angled-img">
+                                <a href="@Url.Action("Details","Event", new { idEvent = item.idEvent })" class="angled-img">
                                     <div class="img">
                                         <img height="100" width="100" data-toggle="tooltip" data-placement="right" title="Show details" src=@Html.DisplayFor(modelItem => item.Pic) alt="">
 
@@ -95,7 +95,7 @@
                         </td>
                         <td>
 
-                            <a href="@Url.Action("Show","Event", new { id = item.id })" class="angled-img">
+                            <a href="@Url.Action("Show","Event", new { idEvent = item.idEvent })" class="angled-img">
                                 <div>
                                     <br />
                                     <img height="65" width="80" data-toggle="tooltip" data-placement="right" title="Show Location" src="~/content/location.png" alt="">

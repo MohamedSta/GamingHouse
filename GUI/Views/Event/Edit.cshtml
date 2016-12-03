@@ -39,7 +39,7 @@
         <div class="form-horizontal">
             <div class="col-md-9">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.id)
+                @Html.HiddenFor(model => model.idEvent)
 
                 <div class="row">
 
@@ -47,8 +47,8 @@
                     <div class="col-md-6">
                         <p>Event Title :</p>
                         <div class="youplay-input">
-                            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Etitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Etitle, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="col-md-6">

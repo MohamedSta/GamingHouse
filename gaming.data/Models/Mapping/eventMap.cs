@@ -8,16 +8,16 @@ namespace gaming.data.Models.Mapping
         public eventMap()
         {
             // Primary Key
-            this.HasKey(t => t.id);
+            this.HasKey(t => t.idEvent);
 
             // Properties
-            this.Property(t => t.id)
+            this.Property(t => t.idEvent)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             this.Property(t => t.dateEvent);
                
 
-            this.Property(t => t.title)
+            this.Property(t => t.Etitle)
                 .HasMaxLength(255);
 
             this.Property(t => t.type)
@@ -33,9 +33,9 @@ namespace gaming.data.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("event");
-            this.Property(t => t.id).HasColumnName("id");
+            this.Property(t => t.idEvent).HasColumnName("idEvent");
             this.Property(t => t.dateEvent).HasColumnName("dateEvent");
-            this.Property(t => t.title).HasColumnName("title");
+            this.Property(t => t.Etitle).HasColumnName("Etitle");
             this.Property(t => t.type).HasColumnName("type");
             this.Property(t => t.Pic).HasColumnName("Pic");
             this.Property(t => t.lieu).HasColumnName("lieu");
